@@ -132,7 +132,7 @@ class OpencensusMiddleware(MiddlewareMixin):
         # Initialize the exporter
         transport = convert_to_import(settings.params.get(TRANSPORT))
 
-        if self._exporter.__name__ == 'GoogleCloudExporter':
+        if self._exporter.__name__ == 'StackdriverExporter':
             _project_id = settings.params.get(GCP_EXPORTER_PROJECT, None)
             self.exporter = self._exporter(
                 project_id=_project_id,
